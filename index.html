@@ -161,7 +161,7 @@
     
                 <div class="simulador_right">
     
-                    <div class="first_step">
+                    <div class="first_step d-none">
                         
                         <div class="first_step_top">
                             
@@ -175,9 +175,9 @@
                                 <div class="first_step_input_group">
                                     <h4 class="text_blue">Qual é seu saldo, aproximadamente</h4>
         
-                                    <label class="input_simple" for="">
-                                        R$ <input type="text" name="" id="">
-                                    </label>
+                                    <div class="input_simple">
+                                        R$ <input type="text" name="" id="input_first">
+                                    </div>
                                 </div>
 
                             </div>
@@ -185,7 +185,17 @@
                             <div class="first_step_top_right">
                                 
                                 <div class="square">
-
+                                    <h5>Pronto!</h5>
+                                    <p>De acordo com o saldo informado, esse é o valor que conseguimos antecipar ;)</p>
+                                    <p class="res_row">
+                                        <span class="value_res_sim">
+                                            R$ <span id="res_sim">940,00</span>
+                                            
+                                        </span>
+                                        <span class="res_taxa">
+                                            Taxa de juros % 0% CET %0%
+                                        </span>
+                                    </p>
                                 </div>
 
                             </div>
@@ -202,13 +212,382 @@
                             </div>
                             <div class="first_step_bottom_right">
 
-                                <button class="btn_blue_theme">
+                                <button class="btn_blue_theme" id="btn_first_step" data-step="1">
                                     Continuar Simulação
                                 </button>
 
                             </div>
                         </div>
     
+                    </div>
+
+
+                    <!-- second step simulator -->
+                    <div class="second_step d-none">
+                        
+                        <div class="second_step_top">
+                            <header class="first_step_header">
+                                <h3 class="title_simulador">Simulando com seus dados</h3>
+                                <p class="subtitle_gray">seguimos a risca a política de LGPD, fique tranquilo</p>
+                            </header>
+
+                            <div class="inputs_second">
+                                <div class="input_group_second">
+                                    <label for="">Nome completo <span class="star_warning">*</span></label>
+                                    <input type="text" name="inputName" id="inputName">
+                                </div>
+                                <div class="input_group_second">
+                                    <label for="">Telefone <span class="star_warning">*</span></label>
+                                    <input type="text" name="inputTel" id="inputTel">
+                                </div>
+                                <div class="input_group_second">
+                                    <label for="">CPF <span class="star_warning">*</span></label>
+                                    <input type="text" name="inputCpf" id="inputCpf">
+                                </div>
+                                <div class="input_group_second">
+                                    <label for="">E-mail <span class="star_warning">*</span></label>
+                                    <input type="text" name="inputEmail" id="inputEmail">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="second_step_bottom">
+                            <div class="second_step_bottom_left">
+                                <label class="cursor-pointer" for="concordo">
+                                    <input type="radio" name="concordo" id="concordo">
+                                    Ao preencher e enviar esse formulário você autoriza que a Vip Promotora de Crédito entre em contato com você via, Whatsapp ou e-mail.
+                                </label>
+                                <label class="cursor-pointer" for="termos">
+                                    <input type="radio" name="termos" id="termos">
+                                    Li e concordo com os <a href="#">termos de uso</a> e as <a href="#">políticas de privacidade</a>
+                                </label>
+                            </div>
+                            <div class="second_step_bottom_right">
+
+                                <button type="submit" class="btn_blue_theme" id="" data-step="1" onclick="submitDate()">
+                                    Simular com meus dados
+                                </button>
+
+                            </div>
+                        </div>
+                            
+                            
+                    </div>
+
+                    <!-- step video -->
+                    <div class="step_video d-none">
+
+                        <div class="step_video_top">
+                            <header class="first_step_header header_step_video">
+                                <h3 class="title_simulador">Autorizando</h3>
+                                <p class="subtitle_gray">o acesso aos seus dados</p>
+                            </header>
+
+                            <div class="body_video">
+                                <header class="header_body_video">
+                                    <h4 class="text_blue">Antes de simular o valor exato precisamos que você faça a autorização pelo aplicativo da caixa</h4>
+                                    <img src="assets/img/caixa.png" alt="">
+                                </header>
+                                <div class="video_frame">
+                                    <iframe width="" height="" src="https://www.youtube.com/embed/EqboAI-Vk-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        <div class="step_video_bottom">
+                            <div class="first_step_bottom_left">
+                                <p>
+                                    Assista ao vídeo com o passo a passo para fazer autorização.
+                                </p>
+                            </div>
+                            <div class="first_step_bottom_right">
+
+                                <button class="btn_blue_theme btn_video_step" id="btn_first_step" data-step="1">
+                                    Já autorizei, continuar simulação
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="step_result_search">
+                        <div class="step_result_search_top">
+                            <header class="first_step_header header_result_search">
+                                <h3 class="title_simulador">Urrul... veja o que conseguimos pra você</h3>
+                                <p class="subtitle_gray">Confira algumas propostas e escolha o que melhor se adapta ao seu momento</p>
+                            </header>
+
+                            <div class="result_proposta">
+                                <div class="row_proposta">
+                                    <div class="prop_result">
+                                        <div class="row d-flex">
+                                            <h3 class="t-green">Proposta 1</h3>
+                                            <span class="t-gray">
+                                                1º ao 5º ano
+                                            </span>
+                                        </div>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">
+                                                Total
+                                            </span>
+    
+                                            <span class="p-gray">
+                                                R$ 1.349,00
+                                            </span>
+                                        </div>
+                                        <hr>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">Valor librado</span>
+                                            <span class="t-green">R$ 940,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="select_proposta">
+                                        <label class="btn_unselect_proposta" for="propostaSelected1" id="select_prop">
+                                            <input type="radio" name="selecionaProposta" id="propostaSelected1">
+                                            Proposta Escolhida
+                                        </label>
+                                        <div class="open_parcelas" id="open_parcelas">
+                                            Ver parcelas <span id=arrow_open_table><i class="bi bi-caret-down-fill"></span></i>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="board_table_det" id="table_parcelas">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Débito</th>
+                                                    <th>Valor total disponível</th>
+                                                    <th>Valor por parcela</th>
+                                                    <th>Taxa de juros</th>
+                                                    <th>CET</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row_proposta">
+                                    <div class="prop_result">
+                                        <div class="row d-flex">
+                                            <h3 class="t-green">Proposta 2</h3>
+                                            <span class="t-gray">
+                                                1º ao 5º ano
+                                            </span>
+                                        </div>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">
+                                                Total
+                                            </span>
+    
+                                            <span class="p-gray">
+                                                R$ 1.349,00
+                                            </span>
+                                        </div>
+                                        <hr>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">Valor librado</span>
+                                            <span class="t-green">R$ 940,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="select_proposta">
+                                        <label class="btn_unselect_proposta" for="propostaSelected2" id="select_prop">
+                                            <input type="radio" name="selecionaProposta" id="propostaSelected2">
+                                            Proposta Escolhida
+                                        </label>
+                                        <div class="open_parcelas" id="open_parcelas">
+                                            Ver parcelas <span id=arrow_open_table><i class="bi bi-caret-down-fill"></span></i>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="board_table_det" id="table_parcelas">
+                                        <table border="0" >
+                                            <thead>
+                                                <tr>
+                                                    <th>Débito</th>
+                                                    <th>Valor total disponível</th>
+                                                    <th>Valor por parcela</th>
+                                                    <th>Taxa de juros</th>
+                                                    <th>CET</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row_proposta">
+                                    <div class="prop_result">
+                                        <div class="row d-flex">
+                                            <h3 class="t-green">Proposta 3</h3>
+                                            <span class="t-gray">
+                                                1º ao 5º ano
+                                            </span>
+                                        </div>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">
+                                                Total
+                                            </span>
+    
+                                            <span class="p-gray">
+                                                R$ 1.349,00
+                                            </span>
+                                        </div>
+                                        <hr>
+                                        <div class="row d-flex">
+                                            <span class="p-gray">Valor librado</span>
+                                            <span class="t-green">R$ 940,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="select_proposta">
+                                        <label class="btn_unselect_proposta" for="propostaSelected3" id="select_prop">
+                                            <input type="radio" name="selecionaProposta" id="propostaSelected3">
+                                            Proposta Escolhida
+                                        </label>
+                                        <div class="open_parcelas" id="open_parcelas">
+                                            Ver parcelas <span id=arrow_open_table><i class="bi bi-caret-down-fill"></span></i>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="board_table_det" id="table_parcelas">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Débito</th>
+                                                    <th>Valor total disponível</th>
+                                                    <th>Valor por parcela</th>
+                                                    <th>Taxa de juros</th>
+                                                    <th>CET</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/02/22</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>R$ 580,00</td>
+                                                    <td>%%</td>
+                                                    <td>%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="step_result_search_bottom">
+                            <div class="first_step_bottom_left">
+                                
+                            </div>
+                            <div class="first_step_bottom_right">
+
+                                <button class="btn_blue_theme btn_video_step" id="btn_first_step" data-step="1">
+                                    Ir para a última etapa
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
 
                     <div class="simulador_copy w-100">
